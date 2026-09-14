@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Holmes Media Group — Video Editor & Filmmaker, Durban</title>
-<meta name="description" content="Dane Holmes is a Durban-based video editor and filmmaker. Wedding films, festival aftermovies, podcast editing and brand films — story-driven, music-first, delivered anywhere.">
+<title>Holmes Media Group — Video Editor & Filmmaker, South Africa</title>
+<meta name="description" content="Dane Holmes is a South African video editor and filmmaker. Films for weddings, festivals, brands and social media — story-driven, shot and cut in South Africa, delivered anywhere.">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Holmes Media Group — Video Editor & Filmmaker, Durban">
-<meta property="og:description" content="Story-driven video editing with a musical ear. Weddings, festival aftermovies, podcasts and brand films. Shot and cut in Durban, delivered anywhere.">
+<meta property="og:title" content="Holmes Media Group — Video Editor & Filmmaker, South Africa">
+<meta property="og:description" content="Story-driven films, edited with feel. Films for Weddings, Festivals, Brands, and Social Media. Shot and cut in South Africa, delivered anywhere.">
 <meta property="og:image" content="https://holmesmediagroup.com/assets/dane_landscape.jpg">
 <meta property="og:url" content="https://holmesmediagroup.com">
 <meta name="twitter:card" content="summary_large_image">
@@ -60,9 +60,9 @@
     max-width:var(--maxw);margin:0 auto;padding:14px 24px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  #logo{font-family:'Montserrat',sans-serif;line-height:1;cursor:default;}
-  #logo .h-main{font-weight:800;font-size:20px;letter-spacing:0.02em;display:block;}
-  #logo .h-sub{font-weight:500;font-size:9px;letter-spacing:0.32em;color:var(--text-dim);display:block;margin-top:2px;}
+  #logo{display:block;line-height:0;}
+  #logo img{height:34px;width:auto;}
+  @media (max-width:760px){ #logo img{height:28px;} }
   nav.links{display:flex;align-items:center;gap:32px;}
   nav.links a.nav-link{
     font-size:14px;text-decoration:none;color:var(--text-dim);
@@ -184,10 +184,11 @@
   .work-item .meta span{font-size:12.5px;color:var(--text-dim);}
 
   .work-verticals{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
     margin-top:28px;
-    max-width:560px;
+    max-width:860px;
   }
+  @media (max-width:760px){ .work-verticals{grid-template-columns:repeat(2,1fr);max-width:560px;} }
   @media (max-width:520px){ .work-verticals{grid-template-columns:1fr;max-width:320px;margin-left:auto;margin-right:auto;} }
   .frame-9x16{aspect-ratio:9/16;}
   .frame-9x16 iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
@@ -200,7 +201,8 @@
   /* ---------- About ---------- */
   .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
   @media (max-width:800px){ .about-grid{grid-template-columns:1fr;gap:32px;} }
-  .about-grid img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;border:1px solid var(--line);}
+  .about-photo{position:relative;}
+  .about-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;}
   .about-copy p{color:var(--text-dim);font-size:15.5px;margin:0 0 16px;}
   .about-copy p:last-child{margin-bottom:0;}
   .about-copy strong{color:var(--text);font-weight:600;}
@@ -233,12 +235,11 @@
 </head>
 <body>
 
-<header class="site-nav">
+<header class="site-nav" id="top">
   <div class="nav-inner">
-    <div id="logo">
-      <span class="h-main">HOLMES</span>
-      <span class="h-sub">MEDIA GROUP</span>
-    </div>
+    <a id="logo" href="#top" aria-label="Holmes Productions">
+      <img src="assets/logo_white.png" alt="Holmes Productions" width="1200" height="321">
+    </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
     <nav class="links" id="navLinks">
       <a class="nav-link" href="#work">Work</a>
@@ -256,9 +257,9 @@
     <img class="img-square" src="assets/dane_square.jpg" alt="Dane Holmes shooting on a beach with a camera rig" width="1400" height="1400">
   </div>
   <div class="hero-content">
-    <span class="eyebrow">Durban, South Africa</span>
-    <h1>Story-driven video editing with a musical ear.</h1>
-    <p class="sub">Weddings, festival aftermovies, podcasts and brand films. Shot and cut in Durban, delivered anywhere.</p>
+    <span class="eyebrow">South Africa</span>
+    <h1>Story-driven films, edited with feel.</h1>
+    <p class="sub">Films for Weddings, Festivals, Brands, and Social Media. Shot and cut in South Africa, delivered anywhere.</p>
     <div class="cta-row">
       <a class="btn solid" href="#work">See the work</a>
       <a class="btn" href="#contact">Get in touch</a>
@@ -270,17 +271,17 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Work</h2>
-      <p>A mix of wedding films, festival aftermovies and vertical edits — cut to picture, timed to sound.</p>
+      <p>A selection of recent films: weddings, festivals, brands and social. Every one built around a story.</p>
     </div>
 
     <div class="work-grid">
       <div class="work-item">
         <div class="frame-wrap frame-16x9">
-          <iframe src="https://player.vimeo.com/video/1220642847?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Wedding Feature Film — Baron Beach House"></iframe>
+          <iframe src="https://player.vimeo.com/video/1226592430?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Festival Aftermovie — Beats In The Bush"></iframe>
         </div>
         <div class="meta">
-          <h3>Wedding Feature Film</h3>
-          <span>Baron Beach House</span>
+          <h3>Festival Aftermovie</h3>
+          <span>Beats In The Bush</span>
         </div>
       </div>
 
@@ -296,11 +297,11 @@
 
       <div class="work-item">
         <div class="frame-wrap frame-16x9">
-          <iframe src="https://player.vimeo.com/video/1226590283?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Festival Aftermovie — Anywhere In Your City, Durban"></iframe>
+          <iframe src="https://player.vimeo.com/video/1220633493?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Wedding Feature Film — Shepstone Gardens"></iframe>
         </div>
         <div class="meta">
-          <h3>Festival Aftermovie</h3>
-          <span>Anywhere In Your City, Durban</span>
+          <h3>Wedding Feature Film</h3>
+          <span>Shepstone Gardens</span>
         </div>
       </div>
 
@@ -340,6 +341,16 @@
 
       <div class="work-item">
         <div class="frame-wrap frame-9x16">
+          <iframe src="https://player.vimeo.com/video/1226592905?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Live Edit Showcase"></iframe>
+        </div>
+        <div class="meta">
+          <h3>Live Edit Showcase</h3>
+          <span>Cut on site in under two hours</span>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="frame-wrap frame-9x16">
           <iframe src="https://player.vimeo.com/video/1226592217?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Amazon & ECR Big Walk 2026 — event reel"></iframe>
         </div>
         <div class="meta">
@@ -360,15 +371,15 @@
     <div class="services-grid">
       <div class="service-card">
         <h3>Wedding films</h3>
-        <p>Highlight films for sharing, and full feature films for keeping. Cut to the songs that mattered on the day.</p>
+        <p>Highlight films for sharing, and full feature films for keeping. Edited so the day feels the way it felt.</p>
       </div>
       <div class="service-card">
         <h3>Festival & event aftermovies</h3>
-        <p>Aftermovies that capture the energy of the crowd, plus same-day live-edit reels for socials.</p>
+        <p>Aftermovies that capture the energy of the event, plus same-day live-edit reels for socials.</p>
       </div>
       <div class="service-card">
         <h3>Podcast editing</h3>
-        <p>Video and audio editing with a sound-engineering background — clean dialogue, tight pacing.</p>
+        <p>Video and audio editing with a sound-engineering background: clean dialogue, tight pacing, clips ready for socials.</p>
       </div>
       <div class="service-card">
         <h3>Brand & corporate films</h3>
@@ -392,16 +403,16 @@
       <h2>About</h2>
     </div>
     <div class="about-grid">
-      <img src="assets/dane_square.jpg" alt="Dane Holmes on a beach shoot with a camera rig" width="1400" height="1400" loading="lazy">
+      <div class="about-photo"><img src="assets/dane_about_bw.jpg" alt="Dane Holmes on a beach shoot" width="1120" height="1400" loading="lazy"></div>
       <div class="about-copy">
-        <p>I'm Dane, based in Hillcrest, just outside Durban, South Africa. I've been editing for 8+ years, and I work remotely with clients in Australia, the UK and the US as well as here at home.</p>
-        <p>I didn't start in video. I have a degree in Music Production from the Academy of Sound Engineering in Johannesburg, and that's still how I think about an edit. I pick songs by key and BPM, transpose tracks so they sit right against each other, and cut to the structure of the music rather than forcing the music to fit the cut.</p>
-        <p>I edit in <strong>Premiere Pro</strong> and grade in <strong>DaVinci Resolve</strong>. Local shoots run on a <strong>Sony FX30</strong> kit, and everything comes together on a <strong>Mac Studio</strong> set up for 4K multicam.</p>
+        <p>I'm Dane, based just outside Durban, South Africa. I've been editing for 8+ years, and I work remotely with clients in Australia, the UK and the US as well as here at home.</p>
+        <p>I came into film through sound. I studied music production and sound engineering at the Academy of Sound Engineering in Johannesburg, which is why my edits tend to be driven by story and rhythm rather than effects. What matters is that the film feels right, from the first frame to the last.</p>
+        <p>I edit in <strong>Premiere Pro</strong> and grade in <strong>DaVinci Resolve</strong>, all on a <strong>Mac Studio</strong>. For shoots I bring the equipment the job needs, whether that's my own or hired in.</p>
         <div class="kit-list">
           <div><span class="kit-label">Edit</span><span class="kit-val">Premiere Pro</span></div>
           <div><span class="kit-label">Grade</span><span class="kit-val">DaVinci Resolve</span></div>
-          <div><span class="kit-label">Camera</span><span class="kit-val">Sony FX30 kit</span></div>
-          <div><span class="kit-label">Workstation</span><span class="kit-val">Mac Studio, 4K multicam</span></div>
+          <div><span class="kit-label">Workstation</span><span class="kit-val">Mac Studio</span></div>
+          <div><span class="kit-label">Based</span><span class="kit-val">Durban, South Africa</span></div>
         </div>
       </div>
     </div>
@@ -445,7 +456,7 @@
 
 <footer>
   <div class="wrap">
-    <p>&copy; 2026 Holmes Media Group &middot; A Holmes Productions company &middot; Durban, South Africa</p>
+    <p>&copy; 2026 Holmes Media Group &middot; A HOLMES PRODUCTION &middot; South Africa</p>
   </div>
 </footer>
 
