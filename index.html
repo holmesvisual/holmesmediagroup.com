@@ -8,7 +8,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Holmes Media Group — Video Editor & Filmmaker, South Africa">
-<meta property="og:description" content="Story-driven films, edited with feel. Films for Weddings, Festivals, Brands, and Social Media. Shot and cut in South Africa, delivered anywhere.">
+<meta property="og:description" content="Story-Driven Films, Capturing Moments. Films for Weddings, Festivals, Brands, and Social Media. Shot and cut in South Africa, delivered anywhere.">
 <meta property="og:image" content="https://holmesmediagroup.com/assets/dane_landscape.jpg">
 <meta property="og:url" content="https://holmesmediagroup.com">
 <meta name="twitter:card" content="summary_large_image">
@@ -51,9 +51,7 @@
   /* ---------- Nav ---------- */
   header.site-nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(11,11,12,0.82);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
+    background:rgba(11,11,12,0.94);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
@@ -99,8 +97,8 @@
 
   @media (max-width:760px){
     nav.links{
-      position:fixed;top:61px;left:0;right:0;bottom:0;
-      background:var(--bg);
+      position:fixed;top:61px;left:0;right:0;height:calc(100vh - 61px);
+      background:var(--bg);z-index:60;
       flex-direction:column;align-items:flex-start;
       padding:32px 24px;gap:22px;
       transform:translateX(100%);
@@ -154,7 +152,7 @@
 
   /* ---------- Section headings ---------- */
   .sec-head{margin-bottom:44px;max-width:640px;}
-  .sec-head h2{font-size:clamp(26px,4vw,36px);font-weight:700;}
+  .sec-head h2{font-size:clamp(26px,4vw,36px);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;}
   .sec-head p{color:var(--text-dim);margin-top:12px;font-size:15.5px;}
 
   /* ---------- Services ---------- */
@@ -201,8 +199,14 @@
   /* ---------- About ---------- */
   .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
   @media (max-width:800px){ .about-grid{grid-template-columns:1fr;gap:32px;} }
-  .about-photo{position:relative;}
-  .about-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;}
+  #about{position:relative;overflow:hidden;padding:120px 0;}
+  .about-bg{position:absolute;inset:0;z-index:0;}
+  .about-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0.36;filter:grayscale(1);}
+  .about-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,#0b0b0c 0%,rgba(11,11,12,0.55) 22%,rgba(11,11,12,0.55) 70%,#0b0b0c 100%);}
+  #about .wrap{position:relative;z-index:1;}
+  .about-grid{grid-template-columns:1fr;max-width:720px;}
+  @media (max-width:640px){ .about-bg img{object-position:center 20%;} }
   .about-copy p{color:var(--text-dim);font-size:15.5px;margin:0 0 16px;}
   .about-copy p:last-child{margin-bottom:0;}
   .about-copy strong{color:var(--text);font-weight:600;}
@@ -258,7 +262,7 @@
   </div>
   <div class="hero-content">
     <span class="eyebrow">South Africa</span>
-    <h1>Story-driven films, edited with feel.</h1>
+    <h1>Story-Driven Films, Capturing Moments.</h1>
     <p class="sub">Films for Weddings, Festivals, Brands, and Social Media. Shot and cut in South Africa, delivered anywhere.</p>
     <div class="cta-row">
       <a class="btn solid" href="#work">See the work</a>
@@ -355,7 +359,7 @@
         </div>
         <div class="meta">
           <h3>Amazon & ECR Big Walk 2026</h3>
-          <span>Event reel</span>
+          <span>Corporate Reel</span>
         </div>
       </div>
     </div>
@@ -371,7 +375,7 @@
     <div class="services-grid">
       <div class="service-card">
         <h3>Wedding films</h3>
-        <p>Highlight films for sharing, and full feature films for keeping. Edited so the day feels the way it felt.</p>
+        <p>Highlight films and full feature films. Edited so the day feels the way it felt.</p>
       </div>
       <div class="service-card">
         <h3>Festival & event aftermovies</h3>
@@ -386,8 +390,8 @@
         <p>Interviews, case studies and promo films edited to tell a clear story, fast.</p>
       </div>
       <div class="service-card">
-        <h3>Real estate video</h3>
-        <p>Walkthroughs and listing films that make a property feel like somewhere you'd want to be.</p>
+        <h3>Real estate video &amp; photography</h3>
+        <p>Listing films and property photography that make a home feel like somewhere you'd want to be.</p>
       </div>
       <div class="service-card">
         <h3>Remote editing</h3>
@@ -398,16 +402,16 @@
 </section>
 
 <section id="about">
+  <div class="about-bg"><img src="assets/dane_landscape.jpg" alt="" width="1376" height="768" loading="lazy"></div>
   <div class="wrap">
     <div class="sec-head">
       <h2>About</h2>
     </div>
     <div class="about-grid">
-      <div class="about-photo"><img src="assets/dane_about_bw.jpg" alt="Dane Holmes on a beach shoot" width="1120" height="1400" loading="lazy"></div>
       <div class="about-copy">
         <p>I'm Dane, based just outside Durban, South Africa. I've been editing for 8+ years, and I work remotely with clients in Australia, the UK and the US as well as here at home.</p>
         <p>I came into film through sound. I studied music production and sound engineering at the Academy of Sound Engineering in Johannesburg, which is why my edits tend to be driven by story and rhythm rather than effects. What matters is that the film feels right, from the first frame to the last.</p>
-        <p>I edit in <strong>Premiere Pro</strong> and grade in <strong>DaVinci Resolve</strong>, all on a <strong>Mac Studio</strong>. For shoots I bring the equipment the job needs, whether that's my own or hired in.</p>
+        <p>I edit in <strong>Premiere Pro</strong> and grade in <strong>DaVinci Resolve</strong>, all on a <strong>Mac Studio</strong>.</p>
         <div class="kit-list">
           <div><span class="kit-label">Edit</span><span class="kit-val">Premiere Pro</span></div>
           <div><span class="kit-label">Grade</span><span class="kit-val">DaVinci Resolve</span></div>
@@ -426,7 +430,7 @@
         <div class="sec-head" style="margin-bottom:20px;">
           <h2>Contact</h2>
         </div>
-        <p>Tell me what you're making and when you need it. I reply within a day.</p>
+        <p>Tell me what you're making and when you need it. I will reply within a day.</p>
         <div class="contact-cta-row">
           <a class="btn solid" href="https://wa.me/27726905166" target="_blank" rel="noopener">WhatsApp me</a>
           <a class="btn" href="mailto:dane@holmesmediagroup.com">Email me</a>
