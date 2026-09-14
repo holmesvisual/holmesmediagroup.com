@@ -210,11 +210,8 @@
   #about .wrap{position:relative;z-index:1;}
   .about-grid{grid-template-columns:1fr;max-width:720px;}
   @media (max-width:640px){
-    /* Mobile: photo sits behind the heading and opening paragraph only, then fades to black */
-    #about{padding-top:56px;}
-    .about-bg{height:96vw;bottom:auto;}
-    .about-bg img{object-position:50% 38%;opacity:0.62;}
-    .about-bg::after{background:linear-gradient(180deg,#0b0b0c 0%,rgba(11,11,12,0.15) 14%,rgba(11,11,12,0.25) 55%,#0b0b0c 100%);}
+    /* Mobile: first stage photo, full-section, slice centred between the tall flame and Dane */
+    .about-bg img{content:url("assets/dane_stage_bw.jpg");object-position:54.5% 38%;opacity:0.6;}
   }
   .about-copy p{color:var(--text-dim);font-size:15.5px;margin:0 0 16px;}
   .about-copy p:last-child{margin-bottom:0;}
