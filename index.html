@@ -134,7 +134,7 @@
   .hero-content{position:relative;z-index:1;padding:0 24px 72px;max-width:var(--maxw);margin:0 auto;width:100%;}
   .hero h1{font-size:clamp(30px,6vw,64px);font-weight:800;line-height:1.08;max-width:820px;}
   .hero h1 .nw{white-space:nowrap;display:inline-block;}
-  .hero h1 .nw.l2{line-height:1.15;}
+  .hero h1 .nw.l2{line-height:1.12;}
   @media (max-width:640px){ .hero h1{font-size:clamp(28px,8.4vw,34px);} }
   .hero p.sub{
     margin-top:22px;font-size:clamp(15px,2vw,18px);color:var(--text-dim);
@@ -469,15 +469,19 @@
 
 <script>
 (function(){
-  // Match the width of "Capturing Moments." to the line above it
-  var l1 = document.querySelector('.hero h1 .nw:not(.l2)');
-  var l2 = document.querySelector('.hero h1 .nw.l2');
+  // Mobile only: scale both headline lines so each spans the full text column
+  var h1 = document.querySelector('.hero h1');
+  var lines = h1 ? h1.querySelectorAll('.nw') : [];
   function fit(){
-    if(!l1||!l2) return;
-    l2.style.fontSize='';
-    var base = parseFloat(getComputedStyle(l2).fontSize);
-    var w1 = l1.getBoundingClientRect().width, w2 = l2.getBoundingClientRect().width;
-    if(w1>0 && w2>0){ l2.style.fontSize = (base * w1 / w2).toFixed(2) + 'px'; }
+    if(!h1||!lines.length) return;
+    lines.forEach(function(l){ l.style.fontSize=''; });
+    if(window.innerWidth > 640) return;
+    var W = h1.clientWidth;
+    lines.forEach(function(l){
+      var base = parseFloat(getComputedStyle(l).fontSize);
+      var w = l.getBoundingClientRect().width;
+      if(w>0 && W>0){ l.style.fontSize = (base * W / w).toFixed(2) + 'px'; }
+    });
   }
   fit();
   if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fit); }
