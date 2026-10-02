@@ -210,8 +210,9 @@
   #about .wrap{position:relative;z-index:1;}
   .about-grid{grid-template-columns:1fr;max-width:720px;}
   @media (max-width:640px){
-    /* Mobile: first stage photo, full-section, slice centred between the tall flame and Dane */
-    .about-bg img{content:url("assets/dane_stage_bw.jpg");object-position:54.5% 38%;opacity:0.6;}
+    /* Mobile: no background photo — plain page background, same as the Services section */
+    .about-bg{display:none;}
+    #about{padding:64px 0;}
   }
   .about-copy p{color:var(--text-dim);font-size:15.5px;margin:0 0 16px;}
   .about-copy p:last-child{margin-bottom:0;}
@@ -286,11 +287,11 @@
     <div class="work-grid">
       <div class="work-item">
         <div class="frame-wrap frame-16x9">
-          <iframe src="https://player.vimeo.com/video/1226592430?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Festival Aftermovie — Beats In The Bush"></iframe>
+          <iframe src="https://player.vimeo.com/video/1226590283?title=0&byline=0&portrait=0&dnt=1" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Anywhere Festival — Latest Aftermovie"></iframe>
         </div>
         <div class="meta">
-          <h3>Festival Aftermovie</h3>
-          <span>Beats In The Bush</span>
+          <h3>Anywhere Festival: Latest Aftermovie</h3>
+          <span>Shot and edited</span>
         </div>
       </div>
 
