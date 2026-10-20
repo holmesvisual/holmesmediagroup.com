@@ -67,10 +67,23 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px}
 .num b{display:block;font-family:var(--h);font-size:clamp(26px,3.4vw,36px);font-weight:800;color:var(--text);line-height:1;font-variant-numeric:tabular-nums}
 .num span{font-size:13px;color:var(--text-dim)}
-.logos{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;align-items:center}
-.logos .eyebrow{color:var(--text-mute);flex-basis:100%}
-.logo{font-family:var(--h);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid var(--line);border-radius:6px}
-.logo img{height:26px;width:auto;filter:grayscale(1) brightness(1.4)}
+/* brand logos: one row on desktop, wraps on smaller screens; every mark is a white file, sized by eye so they read as equals */
+.brands{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
+.brands .eyebrow{color:var(--text-mute);margin-bottom:18px}
+.brand-row{display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;justify-content:center;height:56px;opacity:.78;transition:opacity .2s}
+.brand:hover{opacity:1}
+.brand img{width:auto;max-width:100%;display:block}
+.brand.dewalt img{height:26px}
+.brand.mercedes img{height:46px}
+.brand.amazon img{height:36px}
+.brand.rainbow img{height:24px}
+.brand.ecr img{height:34px}
+.brand.seeff img{height:36px}
+.brand.hunt img{height:46px}
+.brands .also{margin:18px 0 0;font-size:13px;color:var(--text-mute)}
+@media (max-width:1000px){.brand-row{justify-content:center;gap:16px 40px}}
+@media (max-width:600px){.brand-row{gap:10px 28px}.brand{height:48px}.brand.dewalt img{height:22px}.brand.mercedes img{height:40px}.brand.amazon img{height:30px}.brand.rainbow img{height:20px}.brand.ecr img{height:28px}.brand.seeff img{height:30px}.brand.hunt img{height:40px}}
 /* how */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
 .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 18px;position:relative;min-width:0}
@@ -194,9 +207,18 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
       <div class="num"><b>35.7k</b><span>followers on @holmesmediagroup</span></div>
       <div class="num"><b>1 person</b><span>shoots, edits, grades and reads the numbers. No handovers.</span></div>
     </div>
-    <div class="logos">
-      <span class="eyebrow">Work for</span>
-      <span class="logo">KIT Strapping</span><span class="logo">Rainbow Chicken</span><span class="logo">Amazon</span><span class="logo">East Coast Radio</span><span class="logo">Anywhere In Your City</span><span class="logo">In The Park</span><span class="logo">Taylored Films</span><span class="logo">HUNT Properties</span>
+    <div class="brands">
+      <div class="eyebrow">Brands I've worked with</div>
+      <div class="brand-row">
+        <div class="brand dewalt"><img src="assets/logos/dewalt.svg" alt="DeWalt" loading="lazy"></div>
+        <div class="brand mercedes"><img src="assets/logos/mercedes.svg" alt="Mercedes-Benz" loading="lazy"></div>
+        <div class="brand amazon"><img src="assets/logos/amazon.svg" alt="Amazon" loading="lazy"></div>
+        <div class="brand rainbow"><img src="assets/logos/rainbow.png" alt="Rainbow Chicken" loading="lazy"></div>
+        <div class="brand ecr"><img src="assets/logos/ecr.svg" alt="East Coast Radio" loading="lazy"></div>
+        <div class="brand seeff"><img src="assets/logos/seeff.svg" alt="Seeff" loading="lazy"></div>
+        <div class="brand hunt"><img src="assets/logos/hunt.png" alt="HUNT Properties" loading="lazy"></div>
+      </div>
+      <p class="also">Also: KIT Strapping · Anywhere In Your City · In The Park · Taylored Films · Cotswold Downs · Brahman Hills</p>
     </div>
   </div>
 </div>
