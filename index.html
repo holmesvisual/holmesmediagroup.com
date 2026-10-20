@@ -64,9 +64,16 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .fine{font-size:13px;color:var(--text-mute);margin-top:14px}
 /* proof */
 .proof{background:var(--bg-alt);border-bottom:1px solid var(--line);padding-block:36px}
-.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px}
-.num b{display:block;font-family:var(--h);font-size:clamp(26px,3.4vw,36px);font-weight:800;color:var(--text);line-height:1;font-variant-numeric:tabular-nums}
-.num span{font-size:13px;color:var(--text-dim)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px}
+@media (max-width:600px){.nums{grid-template-columns:repeat(2,1fr);gap:22px 16px}}
+.proof-note{margin:16px 0 0;max-width:none;font-size:11px;letter-spacing:.01em;color:var(--text-mute);opacity:.7}
+.num[data-proof]{cursor:pointer}
+.num[data-proof] b::after{content:"\24D8";font-size:.4em;font-weight:600;vertical-align:super;margin-left:4px;color:var(--text-mute)}
+.proof-box{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+.proof-box.open{display:flex}
+.proof-box img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.num b{display:block;font-family:var(--h);font-size:clamp(26px,3.6vw,44px);font-weight:800;color:var(--text);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.num span{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:var(--text-dim)}
 /* brand logos: one row on desktop, wraps on smaller screens; every mark is a white file, sized by eye so they read as equals */
 .brands{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
 .brands .eyebrow{color:var(--text-mute);margin-bottom:18px}
@@ -124,6 +131,11 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .piece iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .piece .cap{padding:12px 14px} .piece .cap b{display:block;font-family:var(--h);font-size:15px} .piece .cap span{font-size:13px;color:var(--text-dim)}
 .piece.v{grid-row:span 1}
+.piece.feature{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column}
+.piece.feature .cap b{font-size:17px}
+.piece.feature .frame{flex:1;aspect-ratio:auto;min-height:0}
+@media (max-width:900px){.piece.feature{grid-row:span 1}.piece.feature .frame{flex:none;aspect-ratio:16/9}}
+@media (max-width:560px){.piece.feature{grid-column:span 1}}
 .more{margin-top:18px;font-size:14px;color:var(--text-dim)}
 /* for */
 .for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
@@ -188,7 +200,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
   <div class="wrap">
     <div class="eyebrow">Hillcrest · Upper Highway · Durban · North Coast</div>
     <h1>One shoot day.<br>A month of content.</h1>
-    <p class="lead">Video for brands, venues and events. I come to your business once a month, film everything that matters, and hand back a month of ready-to-post reels. Shot on cinema cameras, cut by an editor who has put over a billion views on screens.</p>
+    <p class="lead">Video for brands, venues and events. We come to your business once a month, film everything that matters, and hand back a month of ready-to-post reels. Shot on cinema cameras, cut by an editor who has put over a billion views on screens.</p>
     <div class="cta-row">
       <a class="btn primary" href="#trial">Book a free trial shoot</a>
       <a class="btn ghost" href="#work">See the work</a>
@@ -200,15 +212,16 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
 <div class="proof">
   <div class="wrap">
     <div class="nums">
-      <div class="num"><b>1 billion+</b><span>organic views on a page I built from zero to 3 million followers, with no ad spend</span></div>
-      <div class="num"><b>4.7 million</b><span>accounts reached by content I cut</span></div>
-      <div class="num"><b>2.6 million</b><span>views on a single clip</span></div>
-      <div class="num"><b>598k</b><span>likes on a single clip</span></div>
-      <div class="num"><b>35.7k</b><span>followers on @holmesmediagroup</span></div>
-      <div class="num"><b>1 person</b><span>shoots, edits, grades and reads the numbers. No handovers.</span></div>
+      <div class="num"><b>1 billion+</b><span>organic views across all social media</span></div>
+      <div class="num"><b>4.7 million</b><span>accounts reached in a month</span></div>
+      <div class="num"><b>2.6 million</b><span>views on a single video</span></div>
+      <div class="num"><b>598k</b><span>likes on a single video</span></div>
+      <div class="num"><b>35.7k</b><span>followers on Instagram</span></div>
+      <div class="num"><b>1 company</b><span>We shoot and edit everything ourselves.</span></div>
     </div>
+    <p class="proof-note">Real numbers from client accounts and our own. Screenshots on request.</p>
     <div class="brands">
-      <div class="eyebrow">Brands I've worked with</div>
+      <div class="eyebrow">Brands we've worked with</div>
       <div class="brand-row">
         <div class="brand dewalt"><img src="assets/logos/dewalt.svg" alt="DeWalt" loading="lazy"></div>
         <div class="brand mercedes"><img src="assets/logos/mercedes.svg" alt="Mercedes-Benz" loading="lazy"></div>
@@ -226,11 +239,11 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
   <div class="wrap">
     <div class="eyebrow">How it works</div>
     <h2>Shoot once a month. Post all month. Back what works.</h2>
-    <p class="dim">No campaigns, no agencies handing your brand to each other. One person who shoots it, cuts it and watches what happens.</p>
+    <p class="dim">No campaigns, no agencies handing your brand to each other. We shoot it, cut it and watch what happens.</p>
     <div class="steps">
-      <div class="step"><div class="n">01</div><h3>One shoot day at your place</h3><p>I arrive with the cameras, lights and sound. You carry on working. We film the people, the product, the space and the things customers ask about.</p></div>
+      <div class="step"><div class="n">01</div><h3>One shoot day at your place</h3><p>We arrive with the cameras, lights and sound, and you carry on working. We film the people, the product, the space and the things customers ask about.</p></div>
       <div class="step"><div class="n">02</div><h3>A month of reels, ready to post</h3><p>Twelve or more vertical pieces with captions on, plus the landscape cuts you need for your website or YouTube, within ten working days.</p></div>
-      <div class="step"><div class="n">03</div><h3>Post three times a week</h3><p>I schedule them or hand them over with a simple calendar. Nothing goes out that you haven't seen.</p></div>
+      <div class="step"><div class="n">03</div><h3>Post three times a week</h3><p>We schedule them or hand them over with a simple calendar. Nothing goes out that you haven't seen.</p></div>
       <div class="step"><div class="n">04</div><h3>Back the winners</h3><p>Every month we look at which pieces people watched and put a small budget behind those. That is how the budget stops being a guess.</p></div>
     </div>
   </div>
@@ -243,20 +256,20 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
       <h2>One free shoot. Three posts, ready in 72 hours.</h2>
       <p class="dim">The easiest way to see what this looks like for your business is to see it for your business. No pitch deck, no proposal, no cost.</p>
       <ul class="terms">
-        <li>Two to three hours at your premises, me and my gear.</li>
+        <li>Two to three hours at your premises, with our cameras, lights and sound.</li>
         <li>Three finished vertical pieces with your logo on, no watermark. First one inside 72 hours, all three inside a week.</li>
         <li>Yours to keep and post, whatever you decide afterwards.</li>
-        <li>When I deliver, a 20-minute call where I show you what a full month would look like.</li>
+        <li>When we deliver, a 20-minute call where we show you what a full month would look like.</li>
         <li>Two a month, booked in order. Business premises within 45 minutes of Hillcrest.</li>
       </ul>
-      <div class="cta-row"><a class="btn primary" href="https://wa.me/27726905166?text=Hi%20Dane%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20shoot%20for%20" target="_blank" rel="noopener">WhatsApp me a time</a><a class="btn ghost" href="mailto:dane@holmesmediagroup.com?subject=Free%20trial%20shoot">Email instead</a></div>
+      <div class="cta-row"><a class="btn primary" href="https://wa.me/27726905166?text=Hi%20Dane%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20shoot%20for%20" target="_blank" rel="noopener">WhatsApp us a time</a><a class="btn ghost" href="mailto:dane@holmesmediagroup.com?subject=Free%20trial%20shoot">Email instead</a></div>
     </div>
     <div class="next">
       <div class="eyebrow">What happens next</div>
       <ol>
-        <li><b>You message me</b> with your business and a morning or afternoon that suits. I reply the same day.</li>
-        <li><b>I film for two to three hours</b> while you work. If there is a day that's busy or special, we pick that one.</li>
-        <li><b>First reel lands in 72 hours.</b> The other two follow inside the week, and I walk you through a month plan on a short call.</li>
+        <li><b>You message us</b> with your business and a morning or afternoon that suits. We reply the same day.</li>
+        <li><b>We film for two to three hours</b> while you work. If there is a day that's busy or special, we pick that one.</li>
+        <li><b>First reel lands in 72 hours.</b> The other two follow inside the week, and we walk you through a month plan on a short call.</li>
       </ol>
     </div>
   </div>
@@ -304,6 +317,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
       <div class="piece v"><div class="frame"><iframe src="https://player.vimeo.com/video/1226592905?title=0&byline=0&portrait=0&dnt=1" title="Live edit showcase" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>Live-edit reel</b><span>Shot and cut on site in under two hours</span></div></div>
     </div>
     <div class="work-grid">
+      <div class="piece feature"><div class="frame"><iframe src="https://player.vimeo.com/video/1237562068?title=0&byline=0&portrait=0&dnt=1" title="DeWalt Origin film" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>DeWalt · Origin film</b><span>Brand film for DeWalt ANZ. Edit and sound design</span></div></div>
       <div class="piece"><div class="frame"><iframe src="https://player.vimeo.com/video/1233676700?title=0&byline=0&portrait=0&dnt=1" title="Gogo vs Gogo" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>Rainbow Chicken · Gogo vs Gogo</b><span>A full season of monthly episodes, shot and edited</span></div></div>
       <div class="piece"><div class="frame"><iframe src="https://player.vimeo.com/video/1233677515?title=0&byline=0&portrait=0&dnt=1" title="Cotswold Downs property film" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>Cotswold Downs</b><span>Property film</span></div></div>
       <div class="piece"><div class="frame"><iframe src="https://player.vimeo.com/video/1220631619?title=0&byline=0&portrait=0&dnt=1" title="Brahman Hills venue film" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>Brahman Hills</b><span>Venue film</span></div></div>
@@ -333,10 +347,10 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
     <img src="assets/dane_stage2_bw.jpg" alt="Dane Holmes filming" width="1800" height="1012">
     <div>
       <div class="eyebrow">About</div>
-      <h2>I'm Dane. I shoot it, cut it and watch the numbers.</h2>
-      <p class="dim">I'm based in Hillcrest. Before I picked up a camera I built a Facebook page from nothing to three million followers and over a billion views, without spending a rand on ads, by learning what people actually watch. Eight years of editing came out of that.</p>
-      <p class="dim">I came into film through sound. I studied music production and sound engineering, which is why my edits run on story and rhythm rather than effects. Since then I've shot and cut brand reels, a broadcast cooking series, festival aftermovies, property films and campaign work for Amazon and East Coast Radio.</p>
-      <p class="dim">One person, start to finish. That is the point of it.</p>
+      <h2>We shoot it, cut it and watch the numbers.</h2>
+      <p class="dim">Holmes Media Group is based in Hillcrest and was founded by Dane Holmes. Before he picked up a camera, Dane built a Facebook page from nothing to three million followers and over a billion views, without spending a rand on ads, by learning what people actually watch. Eight years of editing came out of that.</p>
+      <p class="dim">He came into film through sound, studying music production and sound engineering, which is why our edits run on story and rhythm rather than effects. Since then we've shot and cut brand reels, a broadcast cooking series, festival aftermovies, property films and campaign work for Amazon and East Coast Radio.</p>
+      <p class="dim">Shot and edited in-house, start to finish. No handovers. That is the point of it.</p>
       <div class="kit"><span>Cinema cameras</span><span>Gimbal &amp; lights</span><span>Premiere Pro</span><span>DaVinci Resolve</span><span>Licensed music</span><span>Hillcrest, KZN</span></div>
     </div>
   </div>
@@ -347,11 +361,11 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
     <div class="eyebrow">Questions</div>
     <h2>The things people ask before they book.</h2>
     <div style="margin-top:24px">
-      <details><summary>Do I need to be on camera?</summary><p>No. The best-performing pieces are usually the product, the place and the people doing their work. If you or your team want to talk to camera, I'll make it easy, and I'll cut around the takes you don't like.</p></details>
-      <details><summary>What do you need from us on the day?</summary><p>Access, and someone who can answer questions for the first fifteen minutes. We plan the shots before I arrive, so the day itself needs very little of your time.</p></details>
-      <details><summary>Who owns the footage?</summary><p>You do. The finished pieces are yours to post anywhere. I keep the raw footage safe for a year in case you want more cut from it.</p></details>
+      <details><summary>Do I need to be on camera?</summary><p>No. The best-performing pieces are usually the product, the place and the people doing their work. If you or your team want to talk to camera, we'll make it easy and cut around the takes you don't like.</p></details>
+      <details><summary>What do you need from us on the day?</summary><p>Access, and someone who can answer questions for the first fifteen minutes. We plan the shots before we arrive, so the day itself needs very little of your time.</p></details>
+      <details><summary>Who owns the footage?</summary><p>You do. The finished pieces are yours to post anywhere. We keep the raw footage safe for a year in case you want more cut from it.</p></details>
       <details><summary>How fast is delivery?</summary><p>Trial shoot: first reel in 72 hours, all three inside a week. Retainers: the month's reels inside ten working days of the shoot, posted to a calendar you've approved.</p></details>
-      <details><summary>Do you run the ads?</summary><p>I boost the pieces that are already working, from a budget you set and hold. I don't run large ad campaigns; if you need that, I'll work alongside whoever does.</p></details>
+      <details><summary>Do you run the ads?</summary><p>We boost the pieces that are already working, from a budget you set and hold. We don't run large ad campaigns; if you need that, we'll work alongside whoever does.</p></details>
       <details><summary>Where do you work?</summary><p>Hillcrest and the Upper Highway first, then Durban, Umhlanga and the North Coast to Ballito. Pietermaritzburg and the Midlands by arrangement.</p></details>
     </div>
   </div>
@@ -361,9 +375,9 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
   <div class="wrap contact-grid">
     <div>
       <div class="eyebrow">Contact</div>
-      <h2>Tell me what you're making and when you need it.</h2>
-      <p class="dim">I reply within a day, usually within the hour.</p>
-      <div class="cta-row"><a class="btn primary" href="https://wa.me/27726905166?text=Hi%20Dane%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20shoot%20for%20" target="_blank" rel="noopener">WhatsApp me</a><a class="btn ghost" href="mailto:dane@holmesmediagroup.com">Email me</a></div>
+      <h2>Tell us what you're making and when you need it.</h2>
+      <p class="dim">We reply within a day, usually within the hour.</p>
+      <div class="cta-row"><a class="btn primary" href="https://wa.me/27726905166?text=Hi%20Dane%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20shoot%20for%20" target="_blank" rel="noopener">WhatsApp us</a><a class="btn ghost" href="mailto:dane@holmesmediagroup.com">Email us</a></div>
     </div>
     <div class="lines">
       <div><b>Email</b>dane@holmesmediagroup.com</div>
@@ -381,5 +395,14 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
   </div>
 </footer>
 
+<div class="proof-box" id="proofBox" role="dialog" aria-label="Screenshot"><img alt="Screenshot of the stat"></div>
+<script>
+(function(){var box=document.getElementById('proofBox');if(!box)return;var img=box.querySelector('img');
+document.querySelectorAll('.num[data-proof]').forEach(function(t){t.setAttribute('tabindex','0');t.setAttribute('role','button');
+function open(){img.src=t.getAttribute('data-proof');box.classList.add('open');}
+t.addEventListener('click',open);t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});});
+function close(){box.classList.remove('open');img.removeAttribute('src');}
+box.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});})();
+</script>
 </body>
 </html>
