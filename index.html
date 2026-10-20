@@ -64,20 +64,21 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .fine{font-size:13px;color:var(--text-mute);margin-top:14px}
 /* proof */
 .proof{background:var(--bg-alt);border-bottom:1px solid var(--line);padding-block:36px}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-@media (max-width:1000px){.nums{grid-template-columns:repeat(2,1fr);gap:22px 16px}}
+.nums{display:flex;justify-content:space-between;align-items:flex-start;gap:32px}
+@media (max-width:1000px){.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 16px}}
 .proof-note{margin:16px 0 0;max-width:none;font-size:11px;letter-spacing:.01em;color:var(--text-mute);opacity:.7}
 .num[data-proof]{cursor:pointer}
 .num[data-proof] b::after{content:"\24D8";font-size:.4em;font-weight:600;vertical-align:super;margin-left:4px;color:var(--text-mute)}
 .proof-box{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
 .proof-box.open{display:flex}
 .proof-box img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
-.num b{display:block;font-family:var(--h);font-size:clamp(26px,2.4vw,32px);font-weight:800;color:var(--text);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
-.num span{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:var(--text-dim)}
+.num b{display:block;font-family:var(--h);font-size:clamp(34px,3.75vw,42px);font-weight:800;color:var(--text);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.num span{display:block;margin-top:10px;font-size:clamp(14px,1.43vw,16px);line-height:1.4;color:var(--text-dim)}
+@media (max-width:1000px){.num b{font-size:clamp(22px,7vw,40px)}}
 /* brand logos: one row on desktop, wraps on smaller screens; every mark is a white file, sized by eye so they read as equals */
 .brands{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
 .brands .eyebrow{color:var(--text-mute);margin-bottom:18px}
-.brand-row{display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center;justify-content:space-between}
+.brand-row{display:flex;flex-wrap:wrap;gap:18px 20px;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;justify-content:center;height:56px;opacity:.78;transition:opacity .2s}
 .brand:hover{opacity:1}
 .brand img{width:auto;max-width:100%;display:block}
@@ -103,47 +104,126 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .step:last-child::after{content:"↺"}
 @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(2)::after,.step:nth-child(4)::after{content:""}.step:nth-child(5){grid-column:span 2}}
 @media (max-width:520px){.steps{grid-template-columns:1fr}.step::after,.step:last-child::after{content:""}.step:nth-child(5){grid-column:auto}}
-.hw{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px 16px}
-@media (max-width:640px){.hw{padding:14px}}
-.hw-head{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:20px}
-.hw-now{font-family:var(--h);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.hw-rec{display:flex;align-items:center;gap:6px;font-family:var(--h);font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--text-dim);opacity:0;transition:opacity .3s}
-.hw-rec i{width:8px;height:8px;border-radius:50%;background:#e5484d}
-.hw[data-p="1"] .hw-rec{opacity:1}
-.hw[data-p="1"] .hw-rec i{animation:hwblink 1s steps(2,start) infinite}
-@keyframes hwblink{to{visibility:hidden}}
-.hw-segs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.hw-seg{-webkit-appearance:none;appearance:none;background:none;border:0;margin:0;padding:10px 0;cursor:pointer}
-.hw-seg span{display:block;height:3px;border-radius:2px;background:var(--line-strong);overflow:hidden}
-.hw-seg b{display:block;height:100%;width:0;background:var(--accent)}
-.hw-seg:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.hw-cap{margin:2px 0 12px;min-height:3.2em;font-size:16px;color:var(--text);max-width:none}
-.hw-brief{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:18px;font-size:12px;color:var(--text-mute)}
-.hw-brief span{border:1px solid var(--line-strong);border-radius:999px;padding:3px 10px;color:var(--text-dim);opacity:.5;transition:opacity .4s,border-color .4s,color .4s}
-.hw[data-p="0"] .hw-brief span{opacity:1;border-color:var(--accent);color:var(--text)}
-.hw-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-@media (max-width:640px){.hw-board{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}}
-.hw-wk>small{display:block;font-family:var(--h);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute);margin-bottom:8px}
-.hw-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.hw-c{position:relative;transition:opacity .5s}
-.hw-v{position:relative;aspect-ratio:9/16;border:1px dashed var(--line-strong);border-radius:6px;transition:background-color .5s,border-color .5s,box-shadow .5s;transition-delay:calc(var(--i)*70ms)}
-.hw.p1 .hw-v{border-style:solid;border-color:var(--line);background-color:#232327}
-.hw-v::before{content:"";position:absolute;left:50%;top:42%;transform:translate(-35%,-50%);border-left:10px solid rgba(242,237,230,.85);border-top:7px solid transparent;border-bottom:7px solid transparent;opacity:0;transition:opacity .4s;transition-delay:calc(var(--i)*70ms)}
-.hw-v::after{content:"";position:absolute;left:14%;right:14%;bottom:11%;height:9px;opacity:0;background:linear-gradient(rgba(242,237,230,.75),rgba(242,237,230,.75)) left top/100% 3px no-repeat,linear-gradient(rgba(242,237,230,.75),rgba(242,237,230,.75)) left bottom/62% 3px no-repeat;transition:opacity .4s;transition-delay:calc(var(--i)*70ms + 120ms)}
-.hw.p2 .hw-v::before,.hw.p2 .hw-v::after{opacity:1}
-.hw-m{position:relative;height:64px;margin-top:8px;border-bottom:1px solid var(--line-strong)}
-@media (max-width:640px){.hw-m{height:46px}}
-.hw-m b{position:absolute;left:20%;right:20%;bottom:0;height:0;border-radius:3px 3px 0 0;background-color:var(--text-mute);transition:height .8s cubic-bezier(.2,.7,.2,1),background-color .4s;transition-delay:calc(var(--w)*380ms + var(--k)*90ms)}
-.hw.p3 .hw-m b{height:var(--h)}
-.hw[data-p="4"] .hw-c:not(.win){opacity:.32}
-.hw[data-p="4"] .win .hw-v{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.hw[data-p="4"] .win .hw-m b{height:100%;background-color:var(--accent);transition-delay:.25s}
-.hw-c .boost{position:absolute;left:50%;top:-9px;z-index:2;transform:translate(-50%,6px);font-family:var(--h);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1;white-space:nowrap;padding:4px 7px;border-radius:999px;background:var(--accent);color:var(--accent-ink);opacity:0;transition:opacity .4s .5s,transform .4s .5s}
-.hw[data-p="4"] .win .boost{opacity:1;transform:translate(-50%,0)}
-.hw-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;margin-top:14px;font-size:12px;color:var(--text-mute)}
-.hw-loop{font-family:var(--h);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);opacity:0;transition:opacity .5s}
-.hw[data-p="4"] .hw-loop{opacity:1;transition-delay:1s}
-@media (prefers-reduced-motion:reduce){.hw *,.hw *::before,.hw *::after{transition:none!important;animation:none!important}}
+/* how it works: phone animation (v2, 20 Oct). Steps on the bar are clickable; the matching .step card lights up */
+.hw-box{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+@media (max-width:640px){.hw-box{padding:16px}}
+.hw-cap{font-size:16px;color:var(--text);margin:0 0 14px;min-height:3.2em;max-width:none}
+.pill{display:inline-block;font:800 11px/1 var(--h);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:var(--accent);color:var(--accent-ink);white-space:nowrap;font-style:normal}
+.hw{display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:640px){.hw{grid-template-columns:1fr;gap:22px}}
+.hw-phone{width:220px;margin:0 auto;aspect-ratio:9/18.5;border:2px solid rgba(242,237,230,.22);border-radius:32px;padding:10px;background:#0e0c09}
+.hw-screen{position:relative;width:100%;height:100%;border-radius:22px;background:var(--screen);overflow:hidden}
+.hw-sb{position:absolute;left:0;right:0;top:0;height:26px;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:0 16px;font:600 11px var(--b);color:var(--text-dim)}
+.hw-sb i{width:16px;height:8px;border:1px solid var(--text-dim);border-radius:2px;position:relative} .hw-sb i::after{content:"";position:absolute;left:1px;top:1px;bottom:1px;width:9px;background:var(--text-dim);border-radius:1px}
+.hw-s{position:absolute;inset:0;opacity:0;transition:opacity .45s;padding:40px 16px 18px}
+.hw[data-p="0"] .hw-plan,.hw[data-p="1"] .hw-shoot,.hw[data-p="2"] .hw-edit,.hw[data-p="3"] .hw-feed,.hw[data-p="4"] .hw-feed{opacity:1}
+
+/* 1 plan */
+.hw-plan small{display:block;font:700 10px var(--h);letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute)}
+.hw-plan h4{font:800 17px var(--h);margin:4px 0 14px}
+.hw-plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.hw-plan li{font-size:13px;color:var(--text);padding:10px 10px 10px 32px;position:relative;border:1px solid var(--line);border-radius:8px;background:rgba(242,237,230,.03);opacity:0;transform:translateX(18px);transition:opacity .4s,transform .4s}
+.hw-plan li::before{content:"";position:absolute;left:11px;top:13px;width:6px;height:11px;border:solid var(--accent);border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform .3s .25s}
+.hw[data-p="0"] .hw-plan li{opacity:1;transform:none} .hw[data-p="0"] .hw-plan li::before{transform:rotate(45deg) scale(1)}
+.hw[data-p="0"] .hw-plan li:nth-child(1){transition-delay:.3s}.hw[data-p="0"] .hw-plan li:nth-child(2){transition-delay:.7s}.hw[data-p="0"] .hw-plan li:nth-child(3){transition-delay:1.1s}
+.hw[data-p="0"] .hw-plan li:nth-child(1)::before{transition-delay:.55s}.hw[data-p="0"] .hw-plan li:nth-child(2)::before{transition-delay:.95s}.hw[data-p="0"] .hw-plan li:nth-child(3)::before{transition-delay:1.35s}
+.hw-booked{margin-top:14px;padding:10px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font:800 11px var(--h);letter-spacing:.1em;text-transform:uppercase;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.hw[data-p="0"] .hw-booked{opacity:1;transform:none;transition-delay:1.8s}
+
+/* 2 shoot: slate, then the camera monitor */
+.hw-shoot{padding:0}
+.hw-slate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 18px;transition:opacity .35s}
+.hw[data-p="1"].mon .hw-slate{opacity:0;pointer-events:none}
+.hw-sl{width:100%;background:#1f1b16;border:1px solid rgba(242,237,230,.2);border-radius:6px;overflow:visible;position:relative}
+.hw-clap{height:22px;border-radius:6px 6px 0 0;background:repeating-linear-gradient(135deg,var(--text) 0 14px,#1f1b16 14px 28px);transform-origin:left bottom;transform:rotate(-18deg);transition:transform .22s cubic-bezier(.4,0,1,1)}
+.hw[data-p="1"] .hw-clap{transform:rotate(0);transition-delay:.45s}
+.hw-slbody{padding:14px 12px 12px;border-top:1px solid rgba(242,237,230,.25)}
+.hw-slbody b{display:block;font:800 12px var(--h);letter-spacing:.1em;text-transform:uppercase}
+.hw-slbody span{display:block;font:600 11px var(--h);letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:5px}
+.hw-slbody span i{font-style:normal;color:var(--accent)}
+.hw-mon{position:absolute;inset:0;padding:40px 0 0;opacity:0;transition:opacity .4s}
+.hw[data-p="1"].mon .hw-mon{opacity:1}
+.hw-mon small{display:block;text-align:center;font:700 10px var(--h);letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);margin-bottom:12px}
+.hw-frame{position:relative;margin:0 auto;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
+.hw-frame::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 62% 55%,rgba(232,184,106,.35),rgba(232,184,106,0) 70%)}
+.hw-frame::after{content:"";position:absolute;left:10%;right:10%;top:22%;bottom:24%;border:1px solid rgba(242,237,230,.35)}
+.hw-sub{position:absolute;left:52%;bottom:0;width:38px;height:54%;border-radius:18px 18px 0 0;background:#0a0908;transform:translateX(-50%)}
+.hw-sub::before{content:"";position:absolute;left:50%;top:-16px;width:18px;height:18px;border-radius:50%;background:#0a0908;transform:translateX(-50%)}
+.hw-hud{position:absolute;left:8px;right:8px;display:flex;justify-content:space-between;align-items:center;font:700 8.5px var(--h);letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.hw-hud.top{top:7px} .hw-hud.bot{bottom:7px;color:var(--text-dim)}
+.hw-hud .rec{display:flex;align-items:center;gap:4px;color:var(--rec)} .hw-hud .rec i{width:6px;height:6px;border-radius:50%;background:var(--rec);animation:blink 1s steps(2,start) infinite}
+.hw-hud b{font-variant-numeric:tabular-nums;color:var(--text)}
+.hw-cross{position:absolute;left:50%;top:50%;width:10px;height:10px;transform:translate(-50%,-50%)}
+.hw-cross::before,.hw-cross::after{content:"";position:absolute;background:rgba(242,237,230,.5)} .hw-cross::before{left:0;right:0;top:50%;height:1px} .hw-cross::after{top:0;bottom:0;left:50%;width:1px}
+.hw-meters{margin:14px 16px 0;display:grid;gap:5px}
+.hw-meters div{display:grid;grid-template-columns:18px 1fr;gap:6px;align-items:center;font:700 8.5px var(--h);letter-spacing:.1em;color:var(--text-mute)}
+.hw-meters span{display:block;height:5px;border-radius:2px;background:rgba(242,237,230,.08);overflow:hidden}
+.hw-meters i{display:block;height:100%;width:60%;background:linear-gradient(90deg,var(--gold-3) 0 70%,var(--accent) 70% 90%,var(--rec) 90%);transform-origin:left;animation:meter 1.1s ease-in-out infinite alternate}
+.hw-meters div:nth-child(2) i{animation-duration:.8s;animation-delay:.3s}
+@keyframes meter{from{transform:scaleX(.45)}to{transform:scaleX(1)}}
+.hw-specs{margin:12px 16px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.hw-specs span{font:700 8.5px var(--h);letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);border:1px solid var(--line);border-radius:4px;padding:5px 2px;text-align:center}
+.hw-specs span b{display:block;font-size:10px;color:var(--text);letter-spacing:.02em}
+@keyframes blink{to{visibility:hidden}}
+
+/* 3 edit */
+.hw-edit small{display:block;font:700 10px var(--h);letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute)}
+.hw-prev{position:relative;width:86px;aspect-ratio:9/16;margin:8px auto 0;border-radius:8px;background:#24201a;overflow:hidden}
+.hw-prev::before{content:"";position:absolute;left:50%;top:40%;transform:translate(-35%,-50%);border-left:12px solid rgba(242,237,230,.85);border-top:8px solid transparent;border-bottom:8px solid transparent}
+.hw-type{position:absolute;left:7px;right:7px;bottom:9px;font:700 9px/1.3 var(--h);color:var(--text);min-height:12px}
+.hw-type::after{content:"";display:inline-block;width:1px;height:9px;background:var(--accent);vertical-align:-1px;margin-left:1px;animation:blink 1s steps(2,start) infinite}
+.hw-tl{position:relative;margin-top:12px;display:grid;gap:4px}
+.hw-tl .tr{display:flex;gap:3px;height:16px}
+.hw-tl .tr i{display:block;flex:1;border-radius:3px;transform:scaleX(0);transform-origin:left;transition:transform .45s}
+.hw-tl .v i{background:var(--gold-3)} .hw-tl .v i:nth-child(2){flex:1.6;background:var(--accent)} .hw-tl .v i:nth-child(4){flex:.7}
+.hw-tl .c{height:9px} .hw-tl .c i{background:rgba(242,237,230,.75);transition-delay:1.1s} .hw-tl .c i:nth-child(2){flex:.6} .hw-tl .c i:nth-child(3){flex:1.4}
+.hw-tl .a{height:14px;border-radius:3px;background:repeating-linear-gradient(90deg,rgba(185,138,62,.9) 0 2px,transparent 2px 4px);mask:linear-gradient(90deg,#000 0 100%);transform:scaleX(0);transform-origin:left;transition:transform .9s .3s}
+.hw-tl .a::before{content:"";position:absolute;left:0;right:0;height:1px;background:var(--gold-3)}
+.hw[data-p="2"] .hw-tl .tr i,.hw[data-p="2"] .hw-tl .a{transform:scaleX(1)}
+.hw[data-p="2"] .hw-tl .v i:nth-child(2){transition-delay:.15s}.hw[data-p="2"] .hw-tl .v i:nth-child(3){transition-delay:.3s}.hw[data-p="2"] .hw-tl .v i:nth-child(4){transition-delay:.45s}.hw[data-p="2"] .hw-tl .v i:nth-child(5){transition-delay:.6s}
+.hw[data-p="2"] .hw-tl .c i:nth-child(2){transition-delay:1.25s}.hw[data-p="2"] .hw-tl .c i:nth-child(3){transition-delay:1.4s}
+.hw-ph{position:absolute;top:-4px;bottom:-4px;left:0;width:2px;background:var(--accent);z-index:2;transition:left 2.6s linear .3s} .hw-ph::before{content:"";position:absolute;left:-4px;top:-5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--accent)}
+.hw[data-p="2"] .hw-ph{left:calc(100% - 2px)}
+.hw-exp{margin-top:14px;font:700 9px var(--h);letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);display:flex;align-items:center;gap:8px}
+.hw-exp b{flex:1;height:4px;border-radius:2px;background:rgba(242,237,230,.08);overflow:hidden} .hw-exp b i{display:block;height:100%;width:0;background:var(--accent);transition:width 1s linear 2.4s}
+.hw[data-p="2"] .hw-exp b i{width:100%}
+
+/* 4 post + 5 scale */
+.hw-feed{padding:0}
+.hw-posts{position:absolute;left:0;right:0;top:0;transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.hw-post{height:var(--sh);padding:34px 14px 16px;display:flex;flex-direction:column}
+.hw-vid{flex:1;border-radius:12px;background:#24201a;position:relative;overflow:hidden}
+.hw-vid span{position:absolute;left:12px;right:12px;bottom:14px;font:700 13px/1.3 var(--h);color:var(--text);text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.hw-vid::before{content:"";position:absolute;left:50%;top:44%;transform:translate(-35%,-50%);border-left:16px solid rgba(242,237,230,.85);border-top:10px solid transparent;border-bottom:10px solid transparent}
+.hw-vid .chip{position:absolute;left:10px;top:10px;right:auto;bottom:auto;font:700 9px var(--h);letter-spacing:.1em;text-transform:uppercase;color:var(--text);background:rgba(0,0,0,.45);border:1px solid rgba(242,237,230,.25);border-radius:999px;padding:4px 8px}
+.hw-meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:11px;color:var(--text-mute);letter-spacing:.04em}
+.hw-meta .pill{opacity:0;transition:opacity .3s}
+.hw[data-p="4"] .hw-post.win .pill{opacity:1;animation:pulse 1.3s ease-in-out infinite}
+.hw[data-p="4"] .hw-post.win .hw-vid{box-shadow:0 0 0 2px var(--accent) inset}
+@keyframes pulse{50%{transform:scale(1.08)}}
+
+/* right side */
+.hw-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:12px}
+.hw-step{-webkit-appearance:none;appearance:none;background:none;border:0;margin:0;padding:8px 0 4px;cursor:pointer;text-align:left;color:var(--text-mute);font-family:var(--h)}
+.hw-step span{display:block;height:3px;border-radius:2px;background:var(--line-strong);overflow:hidden} .hw-step b{display:block;height:100%;width:0;background:var(--accent)}
+.hw-step small{display:block;margin-top:7px;font:700 11px var(--h);letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);transition:color .3s}
+.hw-step:hover small,.hw-step.on small{color:var(--text)} .hw-step.on small{color:var(--accent)}
+.hw-step:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.hw-now{font:700 12px var(--h);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.hw-chart{margin-top:6px;opacity:.35;transition:opacity .4s}
+.hw.p3 .hw-chart{opacity:1}
+.hw-bars{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;align-items:end;height:150px;padding-top:30px;border-bottom:1px solid var(--line-strong)}
+.hw-bars i{display:block;font-style:normal;height:0;border-radius:3px 3px 0 0;background:var(--gold-3);transition:height .5s cubic-bezier(.2,.7,.2,1),background-color .4s,opacity .4s;position:relative}
+.hw-bars i.up{height:var(--h)}
+.hw[data-p="4"] .hw-bars i:not(.win){opacity:.4}
+.hw[data-p="4"] .hw-bars i.win{background:var(--accent);height:100%}
+.hw-bars i .pill{position:absolute;left:50%;top:-24px;transform:translateX(-50%);opacity:0;transition:opacity .4s .4s}
+.hw[data-p="4"] .hw-bars i.win .pill{opacity:1}
+.hw-weeks{display:grid;grid-template-columns:2fr 3fr 3fr 1fr;gap:8px;margin-top:8px;font:700 11px var(--h);letter-spacing:.14em;text-transform:uppercase;color:var(--text-mute)}
+.hw-axis{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--text-mute);margin-top:12px}
+.hw-axis b{font:700 12px var(--h);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);opacity:0;transition:opacity .4s .8s;text-align:right}
+.hw[data-p="4"] .hw-axis b{opacity:1}
+@media (prefers-reduced-motion:reduce){.hw-box *,.hw-box *::before,.hw-box *::after{transition:none!important;animation:none!important}}
 /* trial */
 .trial{background:linear-gradient(180deg,var(--bg-alt),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .trial-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
@@ -279,42 +359,56 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
     <div class="eyebrow ask">How does it work?</div>
     <h2>Post often. See what lands. Scale what's working.</h2>
     <p class="dim">Nobody knows in advance which video will take off. Not even us. So instead of betting your budget on one ad, we make plenty of videos for the places your customers scroll, then see what people actually watch. Whatever works gets a small budget behind it, and next month's shoot is planned around it. We shoot it, edit it and read the numbers ourselves. No agencies handing your brand to each other.</p>
-    <div class="hw" role="group" aria-label="How a month works, animated">
-      <div class="hw-head"><span class="hw-now">01 / 05 · Plan</span><span class="hw-rec" aria-hidden="true"><i></i>REC</span></div>
-      <div class="hw-segs">
-        <button class="hw-seg" type="button" aria-label="Step 1, plan the month"><span><b></b></span></button>
-        <button class="hw-seg" type="button" aria-label="Step 2, shoot on location"><span><b></b></span></button>
-        <button class="hw-seg" type="button" aria-label="Step 3, edit a month of videos"><span><b></b></span></button>
-        <button class="hw-seg" type="button" aria-label="Step 4, post all month"><span><b></b></span></button>
-        <button class="hw-seg" type="button" aria-label="Step 5, scale what's working"><span><b></b></span></button>
-      </div>
-      <p class="hw-cap">A short call first: what are we pushing this month?</p>
-      <div class="hw-brief" aria-hidden="true">This month: <span>Weekend special</span><span>Giveaway</span><span>Ad footage</span></div>
-      <div class="hw-board" aria-hidden="true">
-        <div class="hw-wk"><small>Week 1</small><div class="hw-row">
-          <div class="hw-c" style="--i:0;--w:0;--k:0;--h:22%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-          <div class="hw-c" style="--i:1;--w:0;--k:1;--h:34%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
+    <div class="hw-box"><div class="hw" id="hw" data-p="0" role="group" aria-label="How a month works, animated">
+        <div class="hw-phone"><div class="hw-screen">
+          <div class="hw-sb"><span>9:41</span><i></i></div>
+          <div class="hw-s hw-plan">
+            <small>Planning call · 15 min</small>
+            <h4>This month</h4>
+            <ul><li>Content idea 1</li><li>Content idea 2</li><li>Content idea 3</li></ul>
+            <div class="hw-booked">Shoot day booked</div>
+          </div>
+          <div class="hw-s hw-shoot">
+            <div class="hw-slate"><div class="hw-sl"><div class="hw-clap"></div><div class="hw-slbody"><b>Holmes Media Group</b><span>Scene <i>1</i> · Take <i>1</i></span><span>Cam A · 4K · 25 fps</span></div></div></div>
+            <div class="hw-mon">
+              <small>Camera monitor</small>
+              <div class="hw-frame"><div class="hw-sub"></div><div class="hw-cross"></div>
+                <div class="hw-hud top"><span class="rec"><i></i>Rec</span><b class="hw-tc">00:04:12:00</b></div>
+                <div class="hw-hud bot"><span>Cam A</span><span>4K · 25p</span></div>
+              </div>
+              <div class="hw-meters"><div>A1<span><i></i></span></div><div>A2<span><i></i></span></div></div>
+              <div class="hw-specs"><span>Lens<b>24–70</b></span><span>Iris<b>f/2.8</b></span><span>Shutter<b>1/50</b></span></div>
+            </div>
+          </div>
+          <div class="hw-s hw-edit">
+            <small>Edit</small>
+            <div class="hw-prev"><span class="hw-type"></span></div>
+            <div class="hw-tl"><div class="hw-ph"></div><div class="tr v"><i></i><i></i><i></i><i></i><i></i></div><div class="tr c"><i></i><i></i><i></i></div><div class="a"></div></div>
+            <div class="hw-exp"><span>Export · 9:16</span><b><i></i></b></div>
+          </div>
+          <div class="hw-s hw-feed"><div class="hw-posts"></div></div>
         </div></div>
-        <div class="hw-wk"><small>Week 2</small><div class="hw-row">
-          <div class="hw-c win" style="--i:2;--w:1;--k:0;--h:70%"><span class="boost">Boost</span><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-          <div class="hw-c" style="--i:3;--w:1;--k:1;--h:28%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-          <div class="hw-c" style="--i:4;--w:1;--k:2;--h:24%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-        </div></div>
-        <div class="hw-wk"><small>Week 3</small><div class="hw-row">
-          <div class="hw-c" style="--i:5;--w:2;--k:0;--h:14%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-          <div class="hw-c" style="--i:6;--w:2;--k:1;--h:31%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-          <div class="hw-c win" style="--i:7;--w:2;--k:2;--h:62%"><span class="boost">Boost</span><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-        </div></div>
-        <div class="hw-wk"><small>Week 4</small><div class="hw-row">
-          <div class="hw-c" style="--i:8;--w:3;--k:0;--h:20%"><div class="hw-v"></div><div class="hw-m"><b></b></div></div>
-        </div></div>
-      </div>
-      <div class="hw-foot" aria-hidden="true"><span>Bars show views</span><span class="hw-loop">↺ Next month: more of what worked</span></div>
-    </div>
+        <div class="hw-right">
+          <div class="hw-steps">
+            <button class="hw-step" type="button" aria-label="Step 1, plan"><span><b></b></span><small>Plan</small></button>
+            <button class="hw-step" type="button" aria-label="Step 2, shoot"><span><b></b></span><small>Shoot</small></button>
+            <button class="hw-step" type="button" aria-label="Step 3, edit"><span><b></b></span><small>Edit</small></button>
+            <button class="hw-step" type="button" aria-label="Step 4, post"><span><b></b></span><small>Post</small></button>
+            <button class="hw-step" type="button" aria-label="Step 5, scale"><span><b></b></span><small>Scale</small></button>
+          </div>
+          <div class="hw-now">01 / 05 · Plan</div>
+          <p class="hw-cap">A short call first: what are we pushing this month?</p>
+          <div class="hw-chart">
+            <div class="hw-bars"></div>
+            <div class="hw-weeks"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+            <div class="hw-axis"><span>Bars show views</span><b>↺ Next month: more of what worked</b></div>
+          </div>
+        </div>
+      </div></div>
     <div class="steps">
       <div class="step"><div class="n">01</div><h3>Plan the month</h3><p>A short call before each shoot. Tell us what you want to push: a special, a giveaway, a launch, an event or footage for ads. We plan the shots around it.</p></div>
       <div class="step"><div class="n">02</div><h3>Shoot on location</h3><p>We bring the cameras, lights and sound, and you carry on working. We film what you're pushing, plus the people, the product, the space and the things customers ask about.</p></div>
-      <div class="step"><div class="n">03</div><h3>Edit a month of videos</h3><p>6 to 20 vertical videos with captions, depending on your plan, ready within ten working days. Bigger plans add landscape films for your website or YouTube.</p></div>
+      <div class="step"><div class="n">03</div><h3>Edit a month of videos</h3><p>6 to 20 vertical videos, depending on your plan, ready within ten working days. Captions if you want them. Bigger plans add landscape films for your website or YouTube.</p></div>
       <div class="step"><div class="n">04</div><h3>Post all month</h3><p>Spread across Instagram, TikTok and Facebook. We schedule them, or hand them over with a simple calendar. Nothing goes out that you haven't seen.</p></div>
       <div class="step"><div class="n">05</div><h3>Scale what's working</h3><p>Every post tells us something. Each month we see which videos people actually watched, put a small budget behind those and plan the next shoot around them.</p></div>
     </div>
@@ -350,7 +444,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
 <section id="work">
   <div class="wrap">
     <div class="eyebrow">Work</div>
-    <h2>Brand videos, shows and films, all edited by the same hands.</h2>
+    <h2>Brand videos, shows and films</h2>
     <div class="work-grid vert">
       <div class="piece v"><div class="frame"><iframe src="https://player.vimeo.com/video/1233676617?title=0&byline=0&portrait=0&dnt=1" title="KIT brand video" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>KIT sports strapping</b><span>Monthly brand videos on retainer</span></div></div>
       <div class="piece v"><div class="frame"><iframe src="https://player.vimeo.com/video/1233676700?title=0&byline=0&portrait=0&dnt=1" title="Gogo vs Gogo" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="cap"><b>Rainbow Chicken · Gogo vs Gogo</b><span>A full season of monthly episodes, shot and edited</span></div></div>
@@ -377,7 +471,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
         <div class="name">Lite</div>
         <div class="price">R8,500<small> / month</small></div>
         <div class="then">then R12,500</div>
-        <ul><li>Half-day shoot, once a month</li><li>6 vertical videos, captions on</li><li>Delivered within 10 working days</li><li>A one-page posting calendar</li><li>A monthly note on which two videos to boost</li><li>One round of changes</li></ul>
+        <ul><li>Half-day shoot, once a month</li><li>6 vertical videos</li><li>Delivered within 10 working days</li><li>A one-page posting calendar</li><li>A monthly note on which two videos to boost</li><li>One round of changes</li></ul>
         <div class="for">For a single restaurant, studio, salon or showroom that wants to stop posting phone clips.</div>
       </div>
       <div class="tier featured">
@@ -402,7 +496,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
 <section id="about" class="about">
   <div class="wrap"><div class="about-copy">
     <div class="eyebrow">About</div>
-    <h2>I'm Dane. I shoot it, edit it and get it watched.</h2>
+    <h2>I'm Dane.</h2>
     <p class="dim">I'm based in Hillcrest. Before I picked up a camera, I built a Facebook page from nothing to three million followers and over a billion views, without spending a rand on ads, by learning what people actually watch. Eight years of editing came out of that.</p>
     <p class="dim">I came into film through sound. I studied music production at the Academy of Sound Engineering in Johannesburg, which is why my edits run on story and rhythm rather than effects. Since then I've shot and edited brand videos, a broadcast cooking series, festival aftermovies, property films and campaign work for Amazon and East Coast Radio.</p>
     <p class="dim">I shoot and edit every job myself, start to finish. No handovers, no juniors. That's the point of it.</p>
@@ -424,6 +518,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
     <h2>The things people ask before they book.</h2>
     <div style="margin-top:24px">
       <details><summary>Do I need to be on camera?</summary><p>No. The best-performing videos are usually the product, the place and the people doing their work. If you or your team want to talk to camera, we'll make it easy and edit around the takes you don't like.</p></details>
+      <details><summary>Do the videos have captions?</summary><p>If you want them. Most clients do, because a lot of people watch with the sound off, but it's your call. Some with, some without is fine too.</p></details>
       <details><summary>What do you need from us on the day?</summary><p>Access, and someone who can answer questions for the first fifteen minutes. We plan the shots with you on a short call before we arrive, so the day itself needs very little of your time.</p></details>
       <details><summary>Who owns the footage?</summary><p>You do. The finished videos are yours to post anywhere. We keep the raw footage safe for a year in case you want more made from it.</p></details>
       <details><summary>How fast is delivery?</summary><p>Trial shoot: first video in 72 hours, all three inside a week. Retainers: the month's videos inside ten working days of the shoot, posted to a calendar you've approved.</p></details>
@@ -437,7 +532,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
   <div class="wrap contact-grid">
     <div>
       <div class="eyebrow">Contact</div>
-      <h2>Tell us about your business. We'll tell you what we'd film.</h2>
+      <h2>Tell us about your business.</h2>
       <p class="dim">We reply within a day, usually within the hour.</p>
       <div class="cta-row"><a class="btn primary" href="https://wa.me/27726905166?text=Hi%20Dane%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20shoot%20for%20" target="_blank" rel="noopener">WhatsApp us</a><a class="btn ghost" href="mailto:dane@holmesmediagroup.com">Email us</a></div>
     </div>
@@ -468,31 +563,45 @@ box.addEventListener('click',close);document.addEventListener('keydown',function
 </script>
 <script>
 (function(){
-  var root=document.querySelector('#how .hw');if(!root)return;
-  var segs=[].slice.call(root.querySelectorAll('.hw-seg'));
-  var now=root.querySelector('.hw-now'),cap=root.querySelector('.hw-cap');
-  var cards=[].slice.call(document.querySelectorAll('#how .step'));
-  var names=['Plan','Shoot','Edit','Post','Scale what\'s working'];
-  var caps=['A short call first: what are we pushing this month?','One shoot day on location. You carry on working.','Edited into a month of vertical videos, captions on.','Posted all month. Every post tells us something.','A small budget goes behind the top videos. Next month, more of what worked.'];
-  var dur=[2800,2800,2800,3600,4600];
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var p=-1,timer=null,seen=false;
+  var CAPS=['A short call first: what are we pushing this month?','One shoot day on location, on cinema cameras. You carry on working.','Edited into a month of vertical videos, ready to post.','Posted all month. Every post tells us something.','The top two get a small budget. Next month, more of what worked.'];
+  var NAMES=['Plan','Shoot','Edit','Post','Scale'];
+  var root=document.getElementById('hw'),screen=root.querySelector('.hw-screen'),posts=root.querySelector('.hw-posts'),bars=root.querySelector('.hw-bars'),steps=[].slice.call(root.querySelectorAll('.hw-step')),cards=[].slice.call(document.querySelectorAll('#how .step')),now=root.querySelector('.hw-now'),cap=root.querySelector('.hw-cap'),tc=root.querySelector('.hw-tc'),typer=root.querySelector('.hw-type');
+  var H=[22,34,70,28,24,14,31,62,20],WIN={2:1,7:1},T=['Content idea 1','Meet the team','Behind the scenes','Content idea 2','New this month','A customer question','The space','Content idea 3','How it\'s made'],WK=['Week 1 · Tue','Week 1 · Fri','Week 2 · Mon','Week 2 · Wed','Week 2 · Sat','Week 3 · Tue','Week 3 · Thu','Week 3 · Sun','Week 4 · Wed'],PL=['Instagram','TikTok','Facebook'];
+  var html='',bh='';
+  for(var i=0;i<9;i++){html+='<div class="hw-post'+(WIN[i]?' win':'')+'"><div class="hw-vid"><span class="chip">'+PL[i%3]+'</span><span>'+T[i]+'</span></div><div class="hw-meta"><span>'+WK[i]+'</span><span class="pill">Boost</span></div></div>';bh+='<i style="--h:'+H[i]+'%"'+(WIN[i]?' class="win"':'')+'>'+(WIN[i]?'<span class="pill">Boost</span>':'')+'</i>';}
+  posts.innerHTML=html;bars.innerHTML=bh;
+  var post=[].slice.call(posts.children),bar=[].slice.call(bars.children);
+  var dur=[3000,3900,4000,3700,3600],timers=[],p=-1,loopT=null,seen=false;
+  function later(fn,ms){timers.push(setTimeout(fn,ms));}
+  function clearAll(){timers.forEach(clearTimeout);timers=[];if(tcI){clearInterval(tcI);tcI=null;}}
+  var tcI=null,frames=0;
+  function sh(){var h=screen.clientHeight;root.style.setProperty('--sh',h+'px');return h;}
+  function feed(i){var h=sh();posts.style.transform='translateY('+(-i*h)+'px)';if(bar[i])bar[i].classList.add('up');if(i<8)later(function(){feed(i+1);},340);}
+  function typeText(s,i){typer.textContent=s.slice(0,i);if(i<s.length)later(function(){typeText(s,i+1);},42);}
   function set(n){
-    p=n;root.setAttribute('data-p',n);
-    for(var i=1;i<5;i++)root.classList.toggle('p'+i,n>=i);
-    segs.forEach(function(s,i){var b=s.querySelector('b');b.style.transition='none';b.style.width=i<n?'100%':'0';});
-    var cur=segs[n].querySelector('b');
-    if(reduce){cur.style.width='100%';}else{void cur.offsetWidth;cur.style.transition='width '+dur[n]+'ms linear';cur.style.width='100%';}
-    now.textContent='0'+(n+1)+' / 05 · '+names[n];
-    cap.textContent=caps[n];
-    cards.forEach(function(c,i){c.classList.toggle('is-on',i===n);});
+    clearAll();p=n;root.setAttribute('data-p',n);root.classList.remove('mon');root.classList.toggle('p3',n>=3);
+    steps.forEach(function(s,i){var b=s.querySelector('b');b.style.transition='none';b.style.width=i<n?'100%':'0';s.classList.toggle('on',i===n);});
+    var d=steps[n].querySelector('b');void d.offsetWidth;d.style.transition=reduce?'none':'width '+dur[n]+'ms linear';d.style.width='100%';
+    now.textContent='0'+(n+1)+' / 05 · '+NAMES[n];cap.textContent=CAPS[n];cards.forEach(function(c,i){c.classList.toggle('is-on',i===n);});
+    typer.textContent='';
+    if(n<3){bar.forEach(function(b){b.classList.remove('up');});posts.style.transition='none';posts.style.transform='translateY(0)';void posts.offsetWidth;posts.style.transition='';}
+    if(n===1){
+      frames=0;tc.textContent='00:04:12:00';
+      var start=function(){root.classList.add('mon');tcI=setInterval(function(){frames++;var s=12+Math.floor(frames/25),f=frames%25;tc.textContent='00:04:'+('0'+s).slice(-2)+':'+('0'+f).slice(-2);},40);};
+      if(reduce)start();else later(start,1250);
+    }
+    if(n===2){if(reduce)typer.textContent='Logo on. Ready to post.';else later(function(){typeText('Logo on. Ready to post.',0);},1200);}
+    if(n===3){if(reduce){bar.forEach(function(b){b.classList.add('up');});}else feed(0);}
+    if(n===4){bar.forEach(function(b){b.classList.add('up');});posts.style.transform='translateY('+(-7*sh())+'px)';}
   }
-  function go(){clearTimeout(timer);if(!reduce&&seen)timer=setTimeout(function(){set((p+1)%5);go();},dur[p]);}
-  segs.forEach(function(s,i){s.addEventListener('click',function(){set(i);go();});});
+  function go(){clearTimeout(loopT);if(reduce||!seen)return;loopT=setTimeout(function(){set((p+1)%5);go();},dur[p]);}
+  steps.forEach(function(s,i){s.addEventListener('click',function(){set(i);go();});});
+  window.addEventListener('resize',function(){sh();});
+  window.__o3=function(n){set(n);go();};
   if(reduce){set(4);return;}
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;if(seen){set(p<0?0:p);go();}else{clearTimeout(timer);}});},{threshold:.35}).observe(root);
-  }else{seen=true;set(0);go();}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;if(seen){if(p<0)set(0);go();}else clearTimeout(loopT);});},{threshold:.3}).observe(root);}
+  else{seen=true;set(0);go();}
 })();
 </script>
 </body>
