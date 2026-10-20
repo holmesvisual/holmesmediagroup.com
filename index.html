@@ -22,6 +22,7 @@
   --bg:#0b0b0c; --bg-alt:#131315; --card:#17171a; --text:#f2ede6; --text-dim:#b9b3ab; --text-mute:#8a857d;
   --accent:#e8b86a; --accent-ink:#1a1304; --line:rgba(242,237,230,.1); --line-strong:rgba(242,237,230,.18); --maxw:1120px;
   --h:'Montserrat',sans-serif; --b:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --gold-1:#f6e2bd; --gold-3:#b98a3e; --gold-4:#4a3614; --screen:#191510; --rec:#e5484d; /* used by the How it works animation */
 }
 *{box-sizing:border-box} html{scroll-behavior:smooth} @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -110,7 +111,7 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .hw-cap{font-size:16px;color:var(--text);margin:0 0 14px;min-height:3.2em;max-width:none}
 .pill{display:inline-block;font:800 11px/1 var(--h);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;background:var(--accent);color:var(--accent-ink);white-space:nowrap;font-style:normal}
 .hw{display:grid;grid-template-columns:240px minmax(0,1fr);gap:32px;align-items:center}
-@media (max-width:640px){.hw{grid-template-columns:1fr;gap:22px}}
+@media (max-width:640px){.hw{grid-template-columns:1fr;gap:22px}.hw .hw-phone{width:176px}}
 .hw-phone{width:220px;margin:0 auto;aspect-ratio:9/18.5;border:2px solid rgba(242,237,230,.22);border-radius:32px;padding:10px;background:#0e0c09}
 .hw-screen{position:relative;width:100%;height:100%;border-radius:22px;background:var(--screen);overflow:hidden}
 .hw-sb{position:absolute;left:0;right:0;top:0;height:26px;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:0 16px;font:600 11px var(--b);color:var(--text-dim)}
@@ -130,19 +131,9 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .hw-booked{margin-top:14px;padding:10px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font:800 11px var(--h);letter-spacing:.1em;text-transform:uppercase;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
 .hw[data-p="0"] .hw-booked{opacity:1;transform:none;transition-delay:1.8s}
 
-/* 2 shoot: slate, then the camera monitor */
+/* 2 shoot: the camera monitor */
 .hw-shoot{padding:0}
-.hw-slate{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 18px;transition:opacity .35s}
-.hw[data-p="1"].mon .hw-slate{opacity:0;pointer-events:none}
-.hw-sl{width:100%;background:#1f1b16;border:1px solid rgba(242,237,230,.2);border-radius:6px;overflow:visible;position:relative}
-.hw-clap{height:22px;border-radius:6px 6px 0 0;background:repeating-linear-gradient(135deg,var(--text) 0 14px,#1f1b16 14px 28px);transform-origin:left bottom;transform:rotate(-18deg);transition:transform .22s cubic-bezier(.4,0,1,1)}
-.hw[data-p="1"] .hw-clap{transform:rotate(0);transition-delay:.45s}
-.hw-slbody{padding:14px 12px 12px;border-top:1px solid rgba(242,237,230,.25)}
-.hw-slbody b{display:block;font:800 12px var(--h);letter-spacing:.1em;text-transform:uppercase}
-.hw-slbody span{display:block;font:600 11px var(--h);letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-top:5px}
-.hw-slbody span i{font-style:normal;color:var(--accent)}
-.hw-mon{position:absolute;inset:0;padding:40px 0 0;opacity:0;transition:opacity .4s}
-.hw[data-p="1"].mon .hw-mon{opacity:1}
+.hw-mon{position:absolute;inset:0;padding:40px 0 0}
 .hw-mon small{display:block;text-align:center;font:700 10px var(--h);letter-spacing:.16em;text-transform:uppercase;color:var(--text-mute);margin-bottom:12px}
 .hw-frame{position:relative;margin:0 auto;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden}
 .hw-frame::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 62% 55%,rgba(232,184,106,.35),rgba(232,184,106,0) 70%)}
@@ -163,7 +154,7 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 @keyframes meter{from{transform:scaleX(.45)}to{transform:scaleX(1)}}
 .hw-specs{margin:12px 16px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
 .hw-specs span{font:700 8.5px var(--h);letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);border:1px solid var(--line);border-radius:4px;padding:5px 2px;text-align:center}
-.hw-specs span b{display:block;font-size:10px;color:var(--text);letter-spacing:.02em}
+.hw-specs span b{display:block;font-size:9.5px;color:var(--text);letter-spacing:0;white-space:nowrap}
 @keyframes blink{to{visibility:hidden}}
 
 /* 3 edit */
@@ -214,7 +205,7 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .hw.p3 .hw-chart{opacity:1}
 .hw-bars{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:8px;align-items:end;height:150px;padding-top:30px;border-bottom:1px solid var(--line-strong)}
 .hw-bars i{display:block;font-style:normal;height:0;border-radius:3px 3px 0 0;background:var(--gold-3);transition:height .5s cubic-bezier(.2,.7,.2,1),background-color .4s,opacity .4s;position:relative}
-.hw-bars i.up{height:var(--h)}
+.hw-bars i.up{height:var(--bh)}
 .hw[data-p="4"] .hw-bars i:not(.win){opacity:.4}
 .hw[data-p="4"] .hw-bars i.win{background:var(--accent);height:100%}
 .hw-bars i .pill{position:absolute;left:50%;top:-24px;transform:translateX(-50%);opacity:0;transition:opacity .4s .4s}
@@ -319,7 +310,7 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Hillcrest · Upper Highway · Durban · North Coast</div>
+    <div class="eyebrow">South Africa</div>
     <h1>One shoot day.<br>A month of content.</h1>
     <p class="lead">Video for brands, venues and events. Planned with you on a short call, professionally filmed by us, and delivered as a month's worth of ready-to-post content for all your social media. Shot on cinema cameras. Edited by me: 8+ years' experience.</p>
     <div class="cta-row">
@@ -369,7 +360,6 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
             <div class="hw-booked">Shoot day booked</div>
           </div>
           <div class="hw-s hw-shoot">
-            <div class="hw-slate"><div class="hw-sl"><div class="hw-clap"></div><div class="hw-slbody"><b>Holmes Media Group</b><span>Scene <i>1</i> · Take <i>1</i></span><span>Cam A · 4K · 25 fps</span></div></div></div>
             <div class="hw-mon">
               <small>Camera monitor</small>
               <div class="hw-frame"><div class="hw-sub"></div><div class="hw-cross"></div>
@@ -564,41 +554,42 @@ box.addEventListener('click',close);document.addEventListener('keydown',function
 <script>
 (function(){
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var CAPS=['A short call first: what are we pushing this month?','One shoot day on location, on cinema cameras. You carry on working.','Edited into a month of vertical videos, ready to post.','Posted all month. Every post tells us something.','The top two get a small budget. Next month, more of what worked.'];
+  var CAPS=['A short call first: what are we pushing this month?','One shoot day on location, on cinema cameras. You carry on working.','Edited into a month of vertical videos. The first ones go out while the rest are still in the edit.','Posted all month. Every post tells us something.','The top two get a small budget. Next month, more of what worked.'];
   var NAMES=['Plan','Shoot','Edit','Post','Scale'];
   var root=document.getElementById('hw'),screen=root.querySelector('.hw-screen'),posts=root.querySelector('.hw-posts'),bars=root.querySelector('.hw-bars'),steps=[].slice.call(root.querySelectorAll('.hw-step')),cards=[].slice.call(document.querySelectorAll('#how .step')),now=root.querySelector('.hw-now'),cap=root.querySelector('.hw-cap'),tc=root.querySelector('.hw-tc'),typer=root.querySelector('.hw-type');
   var H=[22,34,70,28,24,14,31,62,20],WIN={2:1,7:1},T=['Content idea 1','Meet the team','Behind the scenes','Content idea 2','New this month','A customer question','The space','Content idea 3','How it\'s made'],WK=['Week 1 · Tue','Week 1 · Fri','Week 2 · Mon','Week 2 · Wed','Week 2 · Sat','Week 3 · Tue','Week 3 · Thu','Week 3 · Sun','Week 4 · Wed'],PL=['Instagram','TikTok','Facebook'];
   var html='',bh='';
-  for(var i=0;i<9;i++){html+='<div class="hw-post'+(WIN[i]?' win':'')+'"><div class="hw-vid"><span class="chip">'+PL[i%3]+'</span><span>'+T[i]+'</span></div><div class="hw-meta"><span>'+WK[i]+'</span><span class="pill">Boost</span></div></div>';bh+='<i style="--h:'+H[i]+'%"'+(WIN[i]?' class="win"':'')+'>'+(WIN[i]?'<span class="pill">Boost</span>':'')+'</i>';}
+  for(var i=0;i<9;i++){html+='<div class="hw-post'+(WIN[i]?' win':'')+'"><div class="hw-vid"><span class="chip">'+PL[i%3]+'</span><span>'+T[i]+'</span></div><div class="hw-meta"><span>'+WK[i]+'</span><span class="pill">Boost</span></div></div>';bh+='<i style="--bh:'+H[i]+'%"'+(WIN[i]?' class="win"':'')+'>'+(WIN[i]?'<span class="pill">Boost</span>':'')+'</i>';}
   posts.innerHTML=html;bars.innerHTML=bh;
   var post=[].slice.call(posts.children),bar=[].slice.call(bars.children);
-  var dur=[3000,3900,4000,3700,3600],timers=[],p=-1,loopT=null,seen=false;
+  var dur=[3000,3200,4000,3700,3600],timers=[],p=-1,loopT=null,seen=false;
   function later(fn,ms){timers.push(setTimeout(fn,ms));}
   function clearAll(){timers.forEach(clearTimeout);timers=[];if(tcI){clearInterval(tcI);tcI=null;}}
   var tcI=null,frames=0;
   function sh(){var h=screen.clientHeight;root.style.setProperty('--sh',h+'px');return h;}
-  function feed(i){var h=sh();posts.style.transform='translateY('+(-i*h)+'px)';if(bar[i])bar[i].classList.add('up');if(i<8)later(function(){feed(i+1);},340);}
+  function feed(i){var h=sh();posts.style.transform='translateY('+(-i*h)+'px)';if(i<8)later(function(){feed(i+1);},340);}
+  function growBars(from,offset){for(var i=from;i<9;i++)(function(i){later(function(){bar[i].classList.add('up');},Math.max(0,i*850-offset));})(i);}
   function typeText(s,i){typer.textContent=s.slice(0,i);if(i<s.length)later(function(){typeText(s,i+1);},42);}
   function set(n){
-    clearAll();p=n;root.setAttribute('data-p',n);root.classList.remove('mon');root.classList.toggle('p3',n>=3);
+    clearAll();p=n;root.setAttribute('data-p',n);root.classList.toggle('p3',n>=2);
     steps.forEach(function(s,i){var b=s.querySelector('b');b.style.transition='none';b.style.width=i<n?'100%':'0';s.classList.toggle('on',i===n);});
     var d=steps[n].querySelector('b');void d.offsetWidth;d.style.transition=reduce?'none':'width '+dur[n]+'ms linear';d.style.width='100%';
     now.textContent='0'+(n+1)+' / 05 · '+NAMES[n];cap.textContent=CAPS[n];cards.forEach(function(c,i){c.classList.toggle('is-on',i===n);});
     typer.textContent='';
-    if(n<3){bar.forEach(function(b){b.classList.remove('up');});posts.style.transition='none';posts.style.transform='translateY(0)';void posts.offsetWidth;posts.style.transition='';}
+    if(n<3){posts.style.transition='none';posts.style.transform='translateY(0)';void posts.offsetWidth;posts.style.transition='';}
+    if(n<2){bar.forEach(function(b){b.classList.remove('up');});}
     if(n===1){
       frames=0;tc.textContent='00:04:12:00';
-      var start=function(){root.classList.add('mon');tcI=setInterval(function(){frames++;var s=12+Math.floor(frames/25),f=frames%25;tc.textContent='00:04:'+('0'+s).slice(-2)+':'+('0'+f).slice(-2);},40);};
-      if(reduce)start();else later(start,1250);
+      tcI=setInterval(function(){frames++;var s=12+Math.floor(frames/25),f=frames%25;tc.textContent='00:04:'+('0'+s).slice(-2)+':'+('0'+f).slice(-2);},40);
     }
-    if(n===2){if(reduce)typer.textContent='Logo on. Ready to post.';else later(function(){typeText('Logo on. Ready to post.',0);},1200);}
-    if(n===3){if(reduce){bar.forEach(function(b){b.classList.add('up');});}else feed(0);}
+    if(n===2){bar.forEach(function(b){b.classList.remove('up');});if(reduce){typer.textContent='Logo on. Ready to post.';bar.forEach(function(b){b.classList.add('up');});}else{later(function(){typeText('Logo on. Ready to post.',0);},1200);growBars(0,0);}}
+    if(n===3){bar.forEach(function(b,i){b.classList.toggle('up',i<5);});if(reduce){bar.forEach(function(b){b.classList.add('up');});}else{feed(0);growBars(5,4000);}}
     if(n===4){bar.forEach(function(b){b.classList.add('up');});posts.style.transform='translateY('+(-7*sh())+'px)';}
   }
   function go(){clearTimeout(loopT);if(reduce||!seen)return;loopT=setTimeout(function(){set((p+1)%5);go();},dur[p]);}
   steps.forEach(function(s,i){s.addEventListener('click',function(){set(i);go();});});
   window.addEventListener('resize',function(){sh();});
-  window.__o3=function(n){set(n);go();};
+  window.__hw=function(n){set(n);go();};
   if(reduce){set(4);return;}
   if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;if(seen){if(p<0)set(0);go();}else clearTimeout(loopT);});},{threshold:.3}).observe(root);}
   else{seen=true;set(0);go();}
