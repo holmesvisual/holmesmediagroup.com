@@ -64,15 +64,15 @@ section{padding-block:72px} @media (max-width:640px){section{padding-block:52px}
 .fine{font-size:13px;color:var(--text-mute);margin-top:14px}
 /* proof */
 .proof{background:var(--bg-alt);border-bottom:1px solid var(--line);padding-block:36px}
-.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 32px}
-@media (max-width:600px){.nums{grid-template-columns:repeat(2,1fr);gap:22px 16px}}
+.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+@media (max-width:1000px){.nums{grid-template-columns:repeat(2,1fr);gap:22px 16px}.nums .num:last-child{grid-column:span 2}}
 .proof-note{margin:16px 0 0;max-width:none;font-size:11px;letter-spacing:.01em;color:var(--text-mute);opacity:.7}
 .num[data-proof]{cursor:pointer}
 .num[data-proof] b::after{content:"\24D8";font-size:.4em;font-weight:600;vertical-align:super;margin-left:4px;color:var(--text-mute)}
 .proof-box{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
 .proof-box.open{display:flex}
 .proof-box img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
-.num b{display:block;font-family:var(--h);font-size:clamp(26px,3.6vw,44px);font-weight:800;color:var(--text);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.num b{display:block;font-family:var(--h);font-size:clamp(26px,2.4vw,32px);font-weight:800;color:var(--text);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
 .num span{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:var(--text-dim)}
 /* brand logos: one row on desktop, wraps on smaller screens; every mark is a white file, sized by eye so they read as equals */
 .brands{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
@@ -215,7 +215,6 @@ footer{padding:28px 0;font-size:13px;color:var(--text-mute);border-top:1px solid
       <div class="num"><b>1 billion+</b><span>organic views across all social media</span></div>
       <div class="num"><b>4.7 million</b><span>accounts reached in a month</span></div>
       <div class="num"><b>2.6 million</b><span>views on a single video</span></div>
-      <div class="num"><b>598k</b><span>likes on a single video</span></div>
       <div class="num"><b>35.7k</b><span>followers on Instagram</span></div>
       <div class="num"><b>1 company</b><span>We shoot and edit everything ourselves.</span></div>
     </div>
